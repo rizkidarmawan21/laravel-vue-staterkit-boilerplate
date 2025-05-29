@@ -3,6 +3,7 @@
 ## Included
 1. Role & Permission
 2. Dynamic Sidebar with role permission
+3. Logging with Request ID
 
 ![image](https://github.com/user-attachments/assets/9d1ee9ca-7056-431b-9ba7-1d49c16a1177)
 ![image](https://github.com/user-attachments/assets/a964669d-a398-4bd3-971e-30b2cb621bf5)
