@@ -16,7 +16,9 @@
 
             <form class="bg-white rounded-lg shadow p-6 space-y-6" @submit.prevent="submitForm">
                 <div class="grid gap-2">
-                    <Label for="name">Nama Role</Label>
+                    <Label for="name">
+                        Nama Role <span class="text-red-500">*</span>
+                    </Label>
                     <Input
                         id="name"
                         v-model="form.name"
@@ -28,7 +30,9 @@
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="permissions">Permissions</Label>
+                    <Label for="permissions">
+                        Permissions <span class="text-red-500">*</span>
+                    </Label>
                     <div class="flex flex-wrap gap-2">
                         <div v-for="permission in props.permissions" :key="permission.id" class="flex items-center space-x-2">
                             <Checkbox 

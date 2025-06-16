@@ -20,6 +20,7 @@ class PermissionSeeder extends Seeder
             'view_dashboard',
             'view_user_management',
             'view_role_management',
+            'view_audit_logs',
         ];
 
         foreach ($permissions as $permission) {

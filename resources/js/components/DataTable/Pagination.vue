@@ -42,7 +42,7 @@ const handlePerPageChange = (value) => {
             <div class="flex items-center gap-2">
                 <p class="text-sm font-medium">Rows per page</p>
                 <Select :model-value="perPage.toString()" @update:model-value="handlePerPageChange">
-                    <SelectTrigger class="h-8 w-[70px]">
+                    <SelectTrigger class="h-8 w-[70px] cursor-pointer">
                         <SelectValue :placeholder="perPage.toString()" />
                     </SelectTrigger>
                     <SelectContent>
@@ -57,19 +57,19 @@ const handlePerPageChange = (value) => {
             </div>
         </div>
         <div class="flex items-center space-x-2">
-            <Button variant="outline" class="h-8 w-8 p-0" :disabled="currentPage === 1" @click="handlePageChange(1)">
+            <Button variant="outline" class="h-8 w-8 p-0 cursor-pointer" :disabled="currentPage === 1" @click="handlePageChange(1)">
                 <span class="sr-only">Go to first page</span>
                 <ChevronsLeft class="h-4 w-4" />
             </Button>
-            <Button variant="outline" class="h-8 w-8 p-0" :disabled="currentPage === 1" @click="handlePageChange(currentPage - 1)">
+            <Button variant="outline" class="h-8 w-8 p-0 cursor-pointer" :disabled="currentPage === 1" @click="handlePageChange(currentPage - 1)">
                 <span class="sr-only">Go to previous page</span>
                 <ChevronLeft class="h-4 w-4" />
             </Button>
-            <Button variant="outline" class="h-8 w-8 p-0" :disabled="currentPage >= lastPage" @click="handlePageChange(currentPage + 1)">
+            <Button variant="outline" class="h-8 w-8 p-0 cursor-pointer" :disabled="currentPage >= lastPage" @click="handlePageChange(currentPage + 1)">
                 <span class="sr-only">Go to next page</span>
                 <ChevronRight class="h-4 w-4" />
             </Button>
-            <Button variant="outline" class="h-8 w-8 p-0" :disabled="currentPage >= lastPage" @click="handlePageChange(lastPage)">
+            <Button variant="outline" class="h-8 w-8 p-0 cursor-pointer" :disabled="currentPage >= lastPage" @click="handlePageChange(lastPage)">
                 <span class="sr-only">Go to last page</span>
                 <ChevronsRight class="h-4 w-4" />
             </Button>

@@ -7,12 +7,33 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use OwenIt\Auditing\Contracts\Auditable;
 use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
-class User extends Authenticatable
+
+class User extends Authenticatable implements Auditable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasRoles, HasPermissions;
+    use \OwenIt\Auditing\Auditable;
+
+    /**
+     * Attributes to exclude from the Audit.
+     *
+     * @var array
+     */
+    protected $auditExclude = [
+        'password',
+        'remember_token',
+        'email_verified_at',
+    ];
+
+    /**
+     * Should the timestamps be audited?
+     *
+     * @var bool
+     */
+    protected $auditTimestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -53,31 +74,5 @@ class User extends Authenticatable
             'is_active' => 'boolean',
             'role' => 'integer',
         ];
-    }
-
-    /**
-     * Role constants
-     */
-    const ADMINISTRATOR = 0;
-    const ADMIN = 1;
-    const WAREHOUSE = 2;
-    const PRODUCTION = 4;
-    const SALES = 5;
-    const MITRA = 6;
-
-    /**
-     * Get the sales profile associated with the user.
-     */
-    public function salesProfile(): HasOne
-    {
-        return $this->hasOne(Sales::class, 'account_id');
-    }
-
-    /**
-     * Get the partner profile associated with the user.
-     */
-    public function partnerProfile(): HasOne
-    {
-        return $this->hasOne(Partner::class, 'account_id');
     }
 }

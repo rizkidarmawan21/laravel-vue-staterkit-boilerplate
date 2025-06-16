@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('is_active')->default(true);
             $table->string('image_profile')->nullable();
-            $table->tinyInteger('role')->default(0)->comment('0: administrator, 1: admin, 2: warehouse, 4: production, 5: sales, 6: mitra');
             $table->rememberToken();
             $table->timestamps();
         });

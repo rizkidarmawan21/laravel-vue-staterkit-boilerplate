@@ -19,12 +19,8 @@ class RoleSeeder extends Seeder
 
         // Create roles
         $roles = [
-            User::ADMINISTRATOR => 'Administrator',
-            User::ADMIN => 'Admin',
-            User::WAREHOUSE => 'Warehouse',
-            User::PRODUCTION => 'Production',
-            User::SALES => 'Sales',
-            User::MITRA => 'Mitra',
+            'Administrator',
+            'Kasir',
         ];
 
         foreach ($roles as $roleId => $roleName) {

@@ -2,6 +2,7 @@
 import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavGroup, type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
+import Icon from './Icon.vue';
 
 defineProps<{
     items: NavGroup[];
@@ -18,7 +19,7 @@ const page = usePage<SharedData>();
                 <SidebarMenuItem v-for="item in group.items" :key="item.title">
                     <SidebarMenuButton as-child :is-active="item.href === page.url" :tooltip="item.title">
                         <Link :href="item.href">
-                            <component :is="item.icon" />
+                            <Icon v-if="item.icon" :name="item.icon" />
                             <span>{{ item.title }}</span>
                         </Link>
                     </SidebarMenuButton>

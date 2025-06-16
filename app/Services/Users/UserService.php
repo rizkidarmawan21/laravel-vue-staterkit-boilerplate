@@ -51,10 +51,6 @@ class UserService
     {
         try {
             $user = $this->repository->create($data);
-            Log::info('User created successfully', [
-                'request_id' => $this->requestId,
-                'id' => $user->id
-            ]);
             return $user;
         } catch (Throwable $e) {
             Log::error('Error creating user', [
@@ -71,10 +67,6 @@ class UserService
     {
         try {
             $updatedUser = $this->repository->update($user, $data);
-            Log::info('User updated successfully', [
-                'request_id' => $this->requestId,
-                'id' => $user->id
-            ]);
             return $updatedUser;
         } catch (Throwable $e) {
             Log::error('Error updating user', [
@@ -92,12 +84,6 @@ class UserService
     {
         try {
             $result = $this->repository->delete($user);
-            if ($result) {
-                Log::info('User deleted successfully', [
-                    'request_id' => $this->requestId,
-                    'id' => $user->id
-                ]);
-            }
             return $result;
         } catch (Throwable $e) {
             Log::error('Error deleting user', [

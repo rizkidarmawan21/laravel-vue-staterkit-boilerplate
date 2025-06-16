@@ -29,6 +29,12 @@ class NavigationMenu
                         'can' => 'view_user_management'
                     ],
                     [
+                        'title' => 'Audit Logs',
+                        'href' => '/audits',
+                        'icon' => 'History',
+                        'can' => 'view_audit_logs'
+                    ],
+                    [
                         'title' => 'Role Management',
                         'href' => '/roles',
                         'icon' => 'User',

@@ -7,6 +7,7 @@ import { MoreHorizontal } from 'lucide-vue-next';
 const props = defineProps<{
     id: number | string;
     editRoute: string;
+    showRoute?: string;
 }>();
 
 const emit = defineEmits(['delete']);
@@ -26,6 +27,9 @@ const deleteUser = () => {
         <DropdownMenuContent align="end">
             <DropdownMenuItem>
                 <Link class="w-full" :href="route(editRoute, id)"> Edit </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem v-if="showRoute">
+                <Link class="w-full" :href="route(showRoute, id)"> Detail </Link>
             </DropdownMenuItem>
             <DropdownMenuItem class="cursor-pointer text-rose-500 hover:text-rose-600!" @click="deleteUser">
                 Hapus

@@ -33,6 +33,14 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/{role}', [App\Http\Controllers\Roles\RoleController::class, 'update'])->name('update');
         Route::delete('/{role}', [App\Http\Controllers\Roles\RoleController::class, 'destroy'])->name('destroy');
     });
+
+    // Audit Log Routes
+    Route::prefix('audits')->name('audits.')->middleware(['can:view_audit_logs'])->group(function () {
+        Route::get('/', [App\Http\Controllers\Audits\AuditController::class, 'index'])->name('index');
+        Route::get('/data', [App\Http\Controllers\Audits\AuditController::class, 'getData'])->name('data');
+        Route::get('/stats', [App\Http\Controllers\Audits\AuditController::class, 'getStats'])->name('stats');
+        Route::get('/{audit}', [App\Http\Controllers\Audits\AuditController::class, 'show'])->name('show');
+    });
 });
 
 require __DIR__.'/settings.php';

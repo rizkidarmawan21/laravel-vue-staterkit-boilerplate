@@ -16,7 +16,9 @@
 
             <form @submit.prevent="submitForm" class="bg-white rounded-lg shadow p-6 space-y-6">
                 <div class="grid gap-2">
-                    <Label for="name">Nama</Label>
+                    <Label for="name">
+                        Nama <span class="text-red-500">*</span>
+                    </Label>
                     <Input
                         id="name"
                         v-model="form.name"
@@ -28,7 +30,9 @@
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="email">Email</Label>
+                    <Label for="email">
+                        Email <span class="text-red-500">*</span>
+                    </Label>
                     <Input
                         id="email"
                         v-model="form.email"
@@ -40,7 +44,9 @@
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="phone">Nomor Telepon</Label>
+                    <Label for="phone">
+                        Nomor Telepon <span class="text-red-500">*</span>
+                    </Label>
                     <Input
                         id="phone"
                         v-model="form.phone"
@@ -52,7 +58,9 @@
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="address">Alamat</Label>
+                    <Label for="address">
+                        Alamat <span class="text-red-500">*</span>
+                    </Label>
                     <Input
                         id="address"
                         v-model="form.address"
@@ -65,7 +73,9 @@
                 </div>
 
                 <div v-if="!props.user?.id" class="grid gap-2">
-                    <Label for="password">Password</Label>
+                    <Label for="password">
+                        Password <span class="text-red-500">*</span>
+                    </Label>
                     <Input
                         id="password"
                         v-model="form.password"
@@ -77,7 +87,9 @@
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="roles">Role</Label>
+                    <Label for="roles">
+                        Role <span class="text-red-500">*</span>
+                    </Label>
                     <Select v-model="form.roles" multiple>
                         <SelectTrigger>
                             <SelectValue placeholder="Pilih role" />
