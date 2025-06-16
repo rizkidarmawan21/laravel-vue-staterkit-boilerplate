@@ -14,12 +14,8 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $roles = [
-            User::ADMINISTRATOR => 'Administrator',
-            User::ADMIN => 'Admin',
-            User::WAREHOUSE => 'Warehouse',
-            User::PRODUCTION => 'Production',
-            User::SALES => 'Sales',
-            User::MITRA => 'Mitra',
+            'Administrator',
+            'Kasir',
         ];
 
         // Create admin user
@@ -30,7 +26,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
 
-        $admin->assignRole($roles[User::ADMINISTRATOR]);
+        $admin->assignRole($roles[0]);
 
         // Create regular users
         User::factory()->count(50)->create();
